@@ -19,21 +19,14 @@ export default class DistrictRepository {
   };
 
   findByName (input) {
-    const locationKeys = Object.keys(this.data);
-    const searchKeys = locationKeys.map(location => location.toLowerCase())
-
-    if(input){
-      let search = input.toLowerCase()
-      let resultsArr = searchKeys.filter((location, index) => {
-        if(location.includes(search)){
-          return locationKeys[index]
-        }
-      });
-
-      // let results = resultsArr.reduce
-      return resultsArr
-    } else {
+    if (!input) {
       return undefined;
+    } else {
+      let locationKeys = Object.keys(this.data);
+      let searchKeys = locationKeys.find(key => key.toLowerCase().includes(input.toLowerCase()));
+      if (searchKeys) {
+        return { location: searchKeys, data: {} };
+      };
     }
-  }
+  };
 }
