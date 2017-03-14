@@ -29,4 +29,16 @@ export default class DistrictRepository {
       return undefined;
     }
   };
+
+  findAllMatches(input) {
+    const locationKeys = Object.keys(this.data);
+    if(input) {
+      return locationKeys.filter(location => location.toLowerCase().includes(input.toLowerCase()))
+    } else {
+      return locationKeys.reduce((results, location) => {
+        results.push(location)
+        return results
+      },[])
+    }
+  }
 }
