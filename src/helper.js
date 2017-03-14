@@ -1,3 +1,5 @@
+
+
 export default class DistrictRepository {
   constructor(data) {
     this.data = this.dataCleaner(data);
@@ -5,15 +7,17 @@ export default class DistrictRepository {
 
   dataCleaner(data) {
     return data.reduce((districts, yearlyData) => {
-      const location = yearlyData.Location;
+      const district = yearlyData.Location;
       const year = yearlyData.TimeFrame;
-      const data = Math.round(1000*yearlyData.Data)/1000 || 0;
+      const schoolData = Math.round(1000*yearlyData.Data)/1000 || 0;
 
-      if (!districts[location]) {
-       districts[location] = {};
+      if (!districts[district]) {
+       districts[district] = { 'location': district, 'yearlyData': {}};
       }
 
-      districts[location][year] = data
+      districts[district]['yearlyData'][year] = schoolData;
+      // {'year': year, 'data': schoolData}
+      // ^^^ nested object with year and data not as key value pairs
       return districts;
     }, {});
   };
