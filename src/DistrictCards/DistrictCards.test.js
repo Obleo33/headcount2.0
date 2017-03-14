@@ -7,7 +7,7 @@ describe('DistrictCards testing', () => {
 
   it('renders without crashing', () => {
     const wrapper = shallow(<DistrictCards />);
-    expect(wrapper.is('.district-card')).toEqual(true);
+    expect(wrapper.is('.district-container')).toEqual(true);
   });
 
 });

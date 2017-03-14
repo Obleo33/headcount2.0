@@ -16,8 +16,6 @@ export default class DistrictRepository {
       }
 
       districts[district]['yearlyData'][year] = schoolData;
-      // {'year': year, 'data': schoolData}
-      // ^^^ nested object with year and data not as key value pairs
       return districts;
     }, {});
   };
@@ -37,9 +35,9 @@ export default class DistrictRepository {
   findAllMatches(input) {
     const locationKeys = Object.keys(this.data);
     if(input) {
-      return locationKeys.filter(location => location.toLowerCase().includes(input.toLowerCase()))
+      const search = locationKeys.filter(location => location.toLowerCase().includes(input.toLowerCase()))
+      return search.map((location,index)=> search[index] = this.data[location])
     }
-
-    return locationKeys
+    return locationKeys.map((location,index)=> this.data[location])
   }
 }
