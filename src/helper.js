@@ -7,7 +7,7 @@ export default class DistrictRepository {
     return data.reduce((districts, yearlyData) => {
       const location = yearlyData.Location;
       const year = yearlyData.TimeFrame;
-      const data = yearlyData.Data;
+      const data = Math.round(1000*yearlyData.Data)/1000 || 0;
 
       if (!districts[location]) {
        districts[location] = {};
@@ -19,14 +19,14 @@ export default class DistrictRepository {
   };
 
   findByName (input) {
-    if (!input) {
-      return undefined;
-    } else {
+    if (input) {
       let locationKeys = Object.keys(this.data);
       let searchKeys = locationKeys.find(key => key.toLowerCase().includes(input.toLowerCase()));
       if (searchKeys) {
-        return { location: searchKeys, data: {} };
+        return { location: searchKeys, data: this.data[searchKeys] };
       };
+    } else {
+      return undefined;
     }
-  };  
+  };
 }
