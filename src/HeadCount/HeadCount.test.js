@@ -14,7 +14,7 @@ describe('HeadCount testing', () => {
 
   it('has a state of data', () => {
     const wrapper = shallow(<HeadCount />);
-    expect(typeof wrapper.state().data).toBe('object');
+    expect(typeof wrapper.state()).toBe('object');
   });
 
 });
