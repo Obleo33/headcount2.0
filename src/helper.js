@@ -34,11 +34,8 @@ export default class DistrictRepository {
     const locationKeys = Object.keys(this.data);
     if(input) {
       return locationKeys.filter(location => location.toLowerCase().includes(input.toLowerCase()))
-    } else {
-      return locationKeys.reduce((results, location) => {
-        results.push(location)
-        return results
-      },[])
     }
+
+    return locationKeys
   }
 }
