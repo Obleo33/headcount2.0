@@ -8,12 +8,20 @@ export default class HeadCount extends Component {
   constructor() {
     super()
     this.state = {
-      data: new DistrictRepository(kinderData),
-      search: ''
+      data: {},
+      search: []
     }
   }
 
+  dataLoader() {
+    this.setState({ data: new DistrictRepository(kinderData) })
+  }
+
   componentWillMount() {
+    this.dataLoader()
+  }
+
+  componentDidMount() {
     this.setState({ search: this.state.data.findAllMatches()})
   }
 
