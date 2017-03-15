@@ -1,5 +1,3 @@
-
-
 class DistrictRepository {
   constructor(data) {
     this.data = this.dataCleaner(data);
@@ -31,7 +29,30 @@ class DistrictRepository {
       return search.map((location,index)=> search[index] = this.data[location])
     }
     return locationKeys.map((location,index)=> this.data[location])
-  }
+  };
+
+  findAverage(district) {
+    district = district.toUpperCase();
+    const yearlyData = this.data[district].yearlyData
+    const keys = Object.keys(yearlyData)
+    const avg =  keys.reduce((average, curr) => {
+      average += yearlyData[curr];
+      return average;
+    }, 0);
+    return (Math.round(1000*(avg/keys.length))/1000);
+  };
+
+  compareDistrictAverages(district1, district2) {
+    const distOneAvg = this.findAverage(district1);
+    const distTwoAvg = this.findAverage(district2);
+    const compared = () => {
+      if (distOneAvg > distTwoAvg) {
+        return (Math.round(1000*(distTwoAvg/distOneAvg))/1000)
+      }
+      return (Math.round(1000*(distOneAvg/distTwoAvg))/1000);
+    }
+    return { [district1.toUpperCase()]: distOneAvg, [district2.toUpperCase()]: distTwoAvg, 'compared': compared()}
+  };
 }
 
-export default DistrictRepository
+export default DistrictRepository;
