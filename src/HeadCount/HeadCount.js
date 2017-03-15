@@ -9,12 +9,17 @@ export default class HeadCount extends Component {
     super()
     this.state = {
       data: new DistrictRepository(kinderData),
+      search: ''
     }
   }
 
-  displayMatches(e){
+  componentWillMount() {
+    this.setState({ search: this.state.data.findAllMatches()})
+  }
+
+  Search(e){
     const match = this.state.data.findAllMatches(e.target.value)
-    console.log(match);
+    this.setState({ search: match })
   }
 
 
@@ -25,10 +30,10 @@ export default class HeadCount extends Component {
         <form className="search-form">
           <input className="search-input"
                  placeholder="search"
-                 onChange={this.displayMatches.bind(this)}
+                 onChange={this.Search.bind(this)}
                  />
         </form>
-        <DistrictCards data={this.state.data}/>
+        <DistrictCards data={this.state.search}/>
       </div>
     )
   }
