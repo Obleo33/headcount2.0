@@ -1,17 +1,26 @@
-import React, { Component } from 'react';
-import HeadCount from '../HeadCount/HeadCount';
-import DistrictRepository from '../helper';
+import React from 'react';
 
 const DistrictCards = (data) => {
   return (
     <div className="district-container">
       {data.data.findAllMatches().map((value, index) => {
-        console.log(Object.keys(value.yearlyData));
         return (
-          <div key={index}>
-            <article className="district-card" >{value.location}</article>
-            <article className="district-stats" >{Object.keys(value.yearlyData)}: {Object.values(value.yearlyData)}</article>
+          <div className="district-card" key={index}>
+            <h2 className="district-name">{value.location}</h2>
+            <DataLoop yearlyData={value.yearlyData}/>
           </div>
+        )
+      })}
+    </div>
+  )
+}
+
+const DataLoop = (yearlyData) => {
+  return (
+    <div className="yearly-data">
+      {Object.keys(yearlyData.yearlyData).map((year, index) => {
+        return (
+          <div key={index}>{year} : {yearlyData.yearlyData[year]}</div>
         )
       })}
     </div>

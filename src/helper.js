@@ -40,4 +40,9 @@ export default class DistrictRepository {
     }
     return locationKeys.map((location,index)=> this.data[location])
   }
+
+  // findAllYears(location) {
+  //   const years = Object.keys(this.data[location]yearlyData)
+  //   return years.map((year,index)=> this.data[location])
+  // }
 }
