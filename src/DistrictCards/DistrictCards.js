@@ -1,4 +1,5 @@
 import React from 'react';
+import DistrictYears from './DistrictYears'
 
 const DistrictCards = (data) => {
   return (
@@ -7,20 +8,8 @@ const DistrictCards = (data) => {
         return (
           <div className="district-card" key={index}>
             <h2 className="district-name">{value.location}</h2>
-            <DataLoop yearlyData={value.yearlyData}/>
+            <DistrictYears yearlyData={value.yearlyData}/>
           </div>
-        )
-      })}
-    </div>
-  )
-}
-
-const DataLoop = (yearlyData) => {
-  return (
-    <div className="yearly-data">
-      {Object.keys(yearlyData.yearlyData).map((year, index) => {
-        return (
-          <div key={index}>{year} : {yearlyData.yearlyData[year]}</div>
         )
       })}
     </div>
