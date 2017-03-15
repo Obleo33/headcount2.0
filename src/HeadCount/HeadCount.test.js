@@ -2,8 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import HeadCount from './HeadCount';
 import { shallow, mount, render } from 'enzyme';
-import DistrictRepository from '../helper';
-import kinderData from '../../data/kindergartners_in_full_day_program.js';
+
 
 describe('HeadCount testing', () => {
 
@@ -15,6 +14,11 @@ describe('HeadCount testing', () => {
   it('has a state of data', () => {
     const wrapper = shallow(<HeadCount />);
     expect(typeof wrapper.state()).toBe('object');
+  });
+
+  it('should have a component called DistrictCards', () => {
+    const wrapper = shallow(<HeadCount/>);
+    expect(wrapper.find('DistrictCards').length).toEqual(1);
   });
 
 });

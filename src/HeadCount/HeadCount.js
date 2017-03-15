@@ -30,7 +30,6 @@ export default class HeadCount extends Component {
     this.setState({ search: match })
   }
 
-
   render() {
     return(
       <div className="head-count">
@@ -47,7 +46,7 @@ export default class HeadCount extends Component {
   }
 }
 
-
 HeadCount.propType = {
-  data: React.PropTypes.object.isRequired
+  data: React.PropTypes.object.isRequired,
+  search: React.PropTypes.array.isRequired
 }
