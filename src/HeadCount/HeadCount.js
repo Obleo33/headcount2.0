@@ -34,13 +34,15 @@ export default class HeadCount extends Component {
   render() {
     return(
       <div className="head-count">
-        <header>HeadCount2.0</header>
-        <form className="search-form">
-          <input className="search-input"
-                 placeholder="search"
-                 onChange={this.Search.bind(this)}
-                 />
-        </form>
+        <div className="header-nav">
+          <header>HeadCount2.0</header>
+          <form className="search-form">
+            <input className="search-input"
+              placeholder="search"
+              onChange={this.Search.bind(this)}
+              />
+          </form>
+        </div>
         <DistrictCards data={this.state.search}/>
       </div>
     )
