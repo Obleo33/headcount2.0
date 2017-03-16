@@ -1,0 +1,16 @@
+.compare-districts-container {
+  display: inline-flex;
+  padding-top: 145px;
+  width: 100%;
+  justify-content: center;
+}
+
+.compare {
+  justify-content: center;
+  margin: 5px;
+  border-radius: 5px;
+  border: 5px solid #333745;
+  max-width: 300px;
+  min-width: 300px;
+  background-color: #FFF;
+}

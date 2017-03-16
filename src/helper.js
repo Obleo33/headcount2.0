@@ -51,7 +51,7 @@ class DistrictRepository {
       }
       return (Math.round(1000*(distOneAvg/distTwoAvg))/1000);
     }
-    return { [district1.toUpperCase()]: distOneAvg, [district2.toUpperCase()]: distTwoAvg, 'compared': compared()}
+    return { [district1.toUpperCase()]: distOneAvg, [district2.toUpperCase()]: distTwoAvg, 'Compared': compared()}
   };
 }
 
