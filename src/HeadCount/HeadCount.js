@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import DistrictCards from '../DistrictCards/DistrictCards';
 import kinderData from '../../data/kindergartners_in_full_day_program.js';
 import DistrictRepository from '../helper';
+import CompareDistricts from '../CompareDistricts/CompareDistricts'
 import './HeadCount.css';
 
 
@@ -10,7 +11,8 @@ export default class HeadCount extends Component {
     super()
     this.state = {
       data: {},
-      search: []
+      search: [],
+      compare: []
     }
   }
 
@@ -32,8 +34,12 @@ export default class HeadCount extends Component {
   }
 
   handleClick(location) {
-    console.log(location+ 'this was clicked');
-
+    if(this.state.compare.length<2){
+      this.state.compare.push(this.state.data.findByName(location))
+    }
+    this.state.compare.shift()
+    this.state.compare.push(this.state.data.findByName(location))
+    this.setState({compare: this.state.compare})
   }
 
   render() {
@@ -48,6 +54,7 @@ export default class HeadCount extends Component {
               />
           </form>
         </div>
+        <CompareDistricts data={this.state.compare}/>
         <DistrictCards data={this.state.search} handleClick={(location) => this.handleClick(location)}/>
       </div>
     )
@@ -56,5 +63,6 @@ export default class HeadCount extends Component {
 
 HeadCount.propType = {
   data: React.PropTypes.object.isRequired,
-  search: React.PropTypes.array.isRequired
+  search: React.PropTypes.array.isRequired,
+  compare: React.PropTypes.array
 }
