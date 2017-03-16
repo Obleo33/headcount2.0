@@ -31,6 +31,11 @@ export default class HeadCount extends Component {
     this.setState({ search: match })
   }
 
+  handleClick(location) {
+    console.log(location+ 'this was clicked');
+
+  }
+
   render() {
     return(
       <div className="head-count">
@@ -43,7 +48,7 @@ export default class HeadCount extends Component {
               />
           </form>
         </div>
-        <DistrictCards data={this.state.search}/>
+        <DistrictCards data={this.state.search} handleClick={(location) => this.handleClick(location)}/>
       </div>
     )
   }
