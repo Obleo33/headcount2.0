@@ -4,14 +4,14 @@ header, .search-form {
 
 header {
   font-size: 40px;
-  color: #FFF;
+  color: #333745;
   width: 100%;
   margin-top: 10px;
 }
 
 .search-input {
   margin: 20px 0px;
-  border: 2px solid #383F51;
+  border: 2px solid #333745;
   border-radius: 5px;
   padding-left: 8px;
   min-width: 200px;
@@ -22,5 +22,5 @@ header {
 .header-nav {
   position: fixed;
   width: 100%;
-  background-color: #3C4F76;
+  background-color: #eef5db;
 }

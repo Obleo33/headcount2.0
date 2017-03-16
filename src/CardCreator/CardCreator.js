@@ -1,5 +1,5 @@
 import React from 'react'
-import DistrictYears from './DistrictYears';
+import DistrictYears from '../DistrictYears/DistrictYears';
 
 const CardCreator = ({index, value, handleClick}) => {
   return (

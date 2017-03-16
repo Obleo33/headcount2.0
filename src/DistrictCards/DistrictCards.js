@@ -1,6 +1,6 @@
 import React from 'react';
 import './DistrictCards.css';
-import CardCreator from './CardCreator'
+import CardCreator from '../CardCreator/CardCreator'
 
 const DistrictCards = ({data, handleClick}) => {
 
