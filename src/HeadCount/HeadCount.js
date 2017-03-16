@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import DistrictCards from '../DistrictCards/DistrictCards';
 import kinderData from '../../data/kindergartners_in_full_day_program.js';
 import DistrictRepository from '../helper';
+import './HeadCount.css';
 
 
 export default class HeadCount extends Component {
@@ -33,7 +34,7 @@ export default class HeadCount extends Component {
   render() {
     return(
       <div className="head-count">
-        <h1>HeadCount2.0</h1>
+        <header>HeadCount2.0</header>
         <form className="search-form">
           <input className="search-input"
                  placeholder="search"

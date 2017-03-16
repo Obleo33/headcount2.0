@@ -1,5 +1,6 @@
 import React from 'react';
-import DistrictYears from './DistrictYears'
+import DistrictYears from './DistrictYears';
+import './DistrictCards.css';
 
 const DistrictCards = (data) => {
   return (

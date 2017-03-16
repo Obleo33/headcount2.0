@@ -1,0 +1,22 @@
+header, .search-form {
+  text-align: center;
+}
+
+header {
+  font-size: 40px;
+  color: #FFF;
+  background-color: #3C4F76;
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 10px;
+}
+
+.search-input {
+  margin: 20px 0px;
+  border: 2px solid #383F51;
+  border-radius: 5px;
+  padding-left: 8px;
+  min-width: 200px;
+  height: 25px;
+  font-size: 15px;
+}
