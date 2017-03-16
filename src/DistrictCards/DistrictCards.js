@@ -8,7 +8,9 @@ const DistrictCards = ({data, handleClick}) => {
     <div className="district-container">
       {data.map((value, index) => {
         return (
-          <CardCreator index={index} value={value} handleClick={(location) => handleClick(value.location)}/>
+          <CardCreator  key={index}
+                        value={value}
+                        handleClick={(location) => handleClick(value.location)}/>
         )
       })}
     </div>
