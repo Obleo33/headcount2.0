@@ -3,7 +3,7 @@ import CardCreator from '../CardCreator/CardCreator';
 import "./CompareDistricts.css";
 
 
-const CompareDistricts = ({data, compare}) => {
+const CompareDistricts = ({data, compare, handleClick}) => {
   function compareDistricts() {
     if (compare.length > 1) {
       const dataCompare = data.compareDistrictAverages(compare[0].location, compare[1].location);
@@ -23,9 +23,9 @@ const CompareDistricts = ({data, compare}) => {
 
   return (
     <div className='compare-districts-container'>
-      <CardCreator  value={compare[0]} key='one'/>
+      <CardCreator  value={compare[0]} handleClick={(location) => handleClick(compare[0].location)} key='one'/>
       {compareDistricts()}
-      <CardCreator  value={compare[1]} key='two'/>
+      <CardCreator  value={compare[1]} handleClick={(location) => handleClick(compare[1].location)} key='two'/>
     </div>
   )
 }
