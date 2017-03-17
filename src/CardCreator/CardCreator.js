@@ -3,6 +3,9 @@ import DistrictYears from '../DistrictYears/DistrictYears';
 
 
 const CardCreator = ({index, value, handleClick}) => {
+  if (!value) {
+    return null
+  };
   const districtClass = 'district-card'
   return (
     <div  className={districtClass}

@@ -36,9 +36,10 @@ export default class HeadCount extends Component {
   handleClick(location) {
     if(this.state.compare.length<2){
       this.state.compare.push(this.state.data.findByName(location))
+    } else {
+      this.state.compare.shift()
+      this.state.compare.push(this.state.data.findByName(location))
     }
-    this.state.compare.shift()
-    this.state.compare.push(this.state.data.findByName(location))
     this.setState({compare: this.state.compare})
   }
 
@@ -49,13 +50,15 @@ export default class HeadCount extends Component {
           <header>HeadCount2.0</header>
           <form className="search-form">
             <input className="search-input"
-              placeholder="search"
-              onChange={this.Search.bind(this)}
-              />
+                   placeholder="search"
+                   onChange={this.Search.bind(this)}
+                   />
           </form>
         </div>
-        <CompareDistricts data={this.state.compare}/>
-        <DistrictCards data={this.state.search} handleClick={(location) => this.handleClick(location)}/>
+        <CompareDistricts data={this.state.data} compare={this.state.compare}/>
+        <DistrictCards data={this.state.search}
+                       handleClick={(location) => this.handleClick(location)}
+                       />
       </div>
     )
   }

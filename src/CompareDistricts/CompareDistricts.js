@@ -1,16 +1,32 @@
-import React from 'react'
-import CardCreator from '../CardCreator/CardCreator'
+import React from 'react';
+import CardCreator from '../CardCreator/CardCreator';
+import "./CompareDistricts.css";
 
-const CompareDistricts = ({data}) => {
-  console.log(data)
+
+const CompareDistricts = ({data, compare}) => {
+  function compareDistricts() {
+    if (compare.length > 1) {
+      const dataCompare = data.compareDistrictAverages(compare[0].location, compare[1].location);
+      const keys = Object.keys(dataCompare)
+      console.log(dataCompare);
+      return (
+        <div className="compare district-card">
+          <h3>{keys[0]}:</h3>
+          <p> {dataCompare[keys[0]]}</p>
+          <h2>{keys[2]}:</h2>
+          <p>{dataCompare[keys[2]]}</p>
+          <h3>{keys[1]}:</h3>
+          <p>{dataCompare[keys[1]]}</p>
+        </div>
+    )
+    }
+  }
+
   return (
     <div className='compare-districts-container'>
-        {data.map((value, index) => {
-          return (
-            <CardCreator  key={index}
-                          value={value}/>
-          )
-        })}
+      <CardCreator  value={compare[0]} key='one'/>
+      {compareDistricts()}
+      <CardCreator  value={compare[1]} key='two'/>
     </div>
   )
 }
