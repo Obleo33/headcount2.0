@@ -4,7 +4,7 @@ import kinderData from '../../data/kindergartners_in_full_day_program.js';
 import DistrictRepository from '../helper';
 import CompareDistricts from '../CompareDistricts/CompareDistricts'
 import './HeadCount.css';
-
+import './normalize.css'
 
 export default class HeadCount extends Component {
   constructor() {
