@@ -8,7 +8,6 @@ const CompareDistricts = ({data, compare}) => {
     if (compare.length > 1) {
       const dataCompare = data.compareDistrictAverages(compare[0].location, compare[1].location);
       const keys = Object.keys(dataCompare)
-      console.log(dataCompare);
       return (
         <div className="compare district-card">
           <h3>{keys[0]}:</h3>

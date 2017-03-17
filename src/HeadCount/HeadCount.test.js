@@ -1,14 +1,9 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import HeadCount from './HeadCount';
-import { shallow, mount, render } from 'enzyme';
-import kinderData from '../../data/kindergartners_in_full_day_program.js';
-import DistrictRepository from '../helper';
-
-
+import { shallow, mount} from 'enzyme';
 
 describe('HeadCount testing', () => {
-
+  
   it('renders a className of .head-count', () => {
     const wrapper = shallow(<HeadCount />);
     expect(wrapper.is('.head-count')).toEqual(true);
@@ -36,13 +31,11 @@ describe('HeadCount testing', () => {
 
   it('should have a component called CompareDistricts', () => {
     const wrapper = shallow(<HeadCount/>);
-
     expect(wrapper.find('CompareDistricts').length).toEqual(1);
   });
 
   it('should have a search input', () => {
     const wrapper = shallow(<HeadCount/>);
-
     expect(wrapper.find('input').length).toEqual(1);
   });
 
@@ -51,36 +44,37 @@ describe('HeadCount testing', () => {
     const search = wrapper.find('.search-input')
 
     search.simulate('change', { target: { value: 'Col' } });
-
     expect(wrapper.state().search.length).toEqual(2);
 
     search.simulate('change', { target: { value: '' } });
     expect(wrapper.state().search.length).toEqual(181);
   });
 
-  it('fires handleClick on click of a div className .district-card', () => {
-    const mockedClick = jest.fn();
+  it('fires handleClick on .district-card adds the cards to the compare array in state', () => {
     const wrapper = mount(<HeadCount/>)
-
     const cardArray = wrapper.find('.district-card');
-    console.log(cardArray);
 
-    cardArray[0].simulate('click');
+    cardArray.first().simulate('click');
     expect(wrapper.state().compare.length).toEqual(1)
 
-    cardArray[1].simulate('click');
+    cardArray.last().simulate('click');
     expect(wrapper.state().compare.length).toEqual(2)
-
-    cardArray[2].simulate('click');
-    expect(wrapper.state().compare.length).toEqual(2)
-
-    cardArray[2].simulate('click');
-    expect(wrapper.state().compare.length).toEqual(1)
-
-    cardArray[0].simulate('click');
-    expect(wrapper.state().compare.length).toEqual(0)
-
-
    });
 
+  it('cards in compare array are removed from array when clicked again', () => {
+    const wrapper = mount(<HeadCount/>)
+    const cardArray = wrapper.find('.district-card');
+
+    cardArray.first().simulate('click');
+    expect(wrapper.state().compare.length).toEqual(1)
+
+    cardArray.last().simulate('click');
+    expect(wrapper.state().compare.length).toEqual(2)
+
+   cardArray.first().simulate('click');
+   expect(wrapper.state().compare.length).toEqual(1)
+
+   cardArray.last().simulate('click');
+   expect(wrapper.state().compare.length).toEqual(0)
+ });
 });
