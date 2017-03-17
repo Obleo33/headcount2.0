@@ -24,10 +24,14 @@
 }
 
 .district-name {
-  padding: 0px 10px;
+  margin-top: 0px;
+  height: 40px;
+  padding: 15px 10px;
   text-align: center;
   font-size: 20px;
   background-color: #FE9000;
   border-bottom: 3px solid black;
-  top: 0;
+  border-top-right-radius: 5px;
+  border-top-left-radius: 5px;
+
 }

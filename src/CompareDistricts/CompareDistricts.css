@@ -21,3 +21,14 @@
   min-width: 300px;
   background-color: #FEFAE0;
 }
+
+@media (max-width: 1000px) {
+  .compare-districts-container {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .compare {
+    width: 25%
+  }
+  }
