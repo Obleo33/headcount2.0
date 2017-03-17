@@ -1,6 +1,14 @@
+/*
+#353531
+#626868
+#FEFAE0
+#29A2CE
+#FE9000
+*/
+
 body {
-  background-color: #333745;
-  color: #333745;
+  background-color: #353531;
+  color: #353531;
 }
 
 header, .search-form {
@@ -9,14 +17,14 @@ header, .search-form {
 
 header {
   font-size: 40px;
-  color: #333745;
+  color: #353531;
   width: 100%;
   margin-top: 10px;
 }
 
 .search-input {
   margin: 20px 0px;
-  border: 2px solid #333745;
+  border: 2px solid #353531;
   border-radius: 5px;
   padding-left: 8px;
   min-width: 200px;
@@ -27,5 +35,5 @@ header {
 .header-nav {
   position: fixed;
   width: 100%;
-  background-color: #eef5db;
+  background-color: #29A2CE;
 }

@@ -1,3 +1,10 @@
+/*
+#353531
+#626868
+#FEFAE0
+#29A2CE
+#FE9000
+*/
 .compare-districts-container {
   display: inline-flex;
   padding-top: 145px;
@@ -9,8 +16,8 @@
   justify-content: center;
   margin: 5px;
   border-radius: 5px;
-  border: 5px solid #333745;
+  border: 5px solid #353531;
   max-width: 300px;
   min-width: 300px;
-  background-color: #FFF;
+  background-color: #FEFAE0;
 }
