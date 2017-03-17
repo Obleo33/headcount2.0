@@ -28,19 +28,28 @@ export default class HeadCount extends Component {
     this.setState({ search: this.state.data.findAllMatches()})
   }
 
-  Search(e){
+  search(e){
     const match = this.state.data.findAllMatches(e.target.value)
     this.setState({ search: match })
   }
 
   handleClick(location) {
-    if(this.state.compare.length<2){
-      this.state.compare.push(this.state.data.findByName(location))
+  const keys = this.state.compare.map(district => district.location)
+  const index = keys.indexOf(location)
+
+    if (index === -1) {
+      if(this.state.compare.length<2){
+        this.state.compare.push(this.state.data.findByName(location))
+      } else {
+        this.state.compare.shift()
+        this.state.compare.push(this.state.data.findByName(location))
+      }
+      this.setState({compare: this.state.compare})
     } else {
-      this.state.compare.shift()
-      this.state.compare.push(this.state.data.findByName(location))
+        console.log('else key: ' + index)
+        this.state.compare.splice(index,1)
+        this.setState({compare: this.state.compare})
     }
-    this.setState({compare: this.state.compare})
   }
 
   render() {
@@ -51,7 +60,7 @@ export default class HeadCount extends Component {
           <form className="search-form">
             <input className="search-input"
                    placeholder="search"
-                   onChange={this.Search.bind(this)}
+                   onChange={this.search.bind(this)}
                    />
           </form>
         </div>
