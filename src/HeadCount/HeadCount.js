@@ -67,7 +67,9 @@ export default class HeadCount extends Component {
                    />
           </form>
         </div>
-        <CompareDistricts data={this.state.data} compare={this.state.compare}/>
+        <CompareDistricts data={this.state.data}
+                          compare={this.state.compare}
+                          handleClick={(location) => this.handleClick(location)}/>
         <DistrictCards data={this.state.search}
                        handleClick={(location) => this.handleClick(location)}
                        />
