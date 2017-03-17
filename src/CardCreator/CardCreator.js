@@ -19,5 +19,4 @@ const CardCreator = ({index, value, handleClick}) => {
   )
 }
 
-
 export default CardCreator;
