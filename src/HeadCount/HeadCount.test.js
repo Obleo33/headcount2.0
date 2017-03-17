@@ -6,6 +6,7 @@ import kinderData from '../../data/kindergartners_in_full_day_program.js';
 import DistrictRepository from '../helper';
 
 
+
 describe('HeadCount testing', () => {
 
   it('renders a className of .head-count', () => {
@@ -56,5 +57,30 @@ describe('HeadCount testing', () => {
     search.simulate('change', { target: { value: '' } });
     expect(wrapper.state().search.length).toEqual(181);
   });
+
+  it('fires handleClick on click of a div className .district-card', () => {
+    const mockedClick = jest.fn();
+    const wrapper = mount(<HeadCount/>)
+
+    const cardArray = wrapper.find('.district-card');
+    console.log(cardArray);
+
+    cardArray[0].simulate('click');
+    expect(wrapper.state().compare.length).toEqual(1)
+
+    cardArray[1].simulate('click');
+    expect(wrapper.state().compare.length).toEqual(2)
+
+    cardArray[2].simulate('click');
+    expect(wrapper.state().compare.length).toEqual(2)
+
+    cardArray[2].simulate('click');
+    expect(wrapper.state().compare.length).toEqual(1)
+
+    cardArray[0].simulate('click');
+    expect(wrapper.state().compare.length).toEqual(0)
+
+
+   });
 
 });

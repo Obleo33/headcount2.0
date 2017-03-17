@@ -31,17 +31,6 @@ describe('CardCreator testing', () => {
    expect(wrapper.find('DistrictYears').length).toEqual(1);
  });
 
- it('fires handleClick on click of a div className .districtClass', () => {
-   const mockedSubmit = jest.fn();
-   const wrapper = mount(<CardCreator value={Value} index={Date.now()} handleClick={mockedSubmit} />)
-  //  const expectedState = {
-  //    title: '',
-  //    body: ''
-  //  };
-   const divDistrictClass = wrapper.find('');
-   console.log(divDistrictClass);
-   divDistrictClass.simulate('click');
-   expect(wrapper.state().compare.length).toBe(1)
-  });
+
 
  });
