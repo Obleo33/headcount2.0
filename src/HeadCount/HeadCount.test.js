@@ -2,26 +2,28 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import HeadCount from './HeadCount';
 import { shallow, mount, render } from 'enzyme';
+import kinderData from '../../data/kindergartners_in_full_day_program.js';
+import DistrictRepository from '../helper';
 
 
 describe('HeadCount testing', () => {
 
-  it('renders without crashing', () => {
+  it('renders a className of .head-count', () => {
     const wrapper = shallow(<HeadCount />);
     expect(wrapper.is('.head-count')).toEqual(true);
   });
 
-  it('has a state of data', () => {
+  it('has a state of data defaulted to an empty object', () => {
     const wrapper = shallow(<HeadCount />);
     expect(typeof wrapper.state().data).toBe('object');
   });
 
-  it('has a state of search', () => {
+  it('has a state of search defaulted to an empty array', () => {
     const wrapper = shallow(<HeadCount />);
     expect(wrapper.state().search).toEqual([]);
   });
 
-  it('has a state of compare', () => {
+  it('has a state of compare defaulted to an empty array', () => {
     const wrapper = shallow(<HeadCount />);
     expect(wrapper.state().compare).toEqual([]);
   });

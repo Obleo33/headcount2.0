@@ -3,7 +3,6 @@ import ReactDOM from 'react-dom';
 import CardCreator from './CardCreator';
 import { shallow, mount, render } from 'enzyme';
 
-
 const Value = { location: 'Colorado',
           yearlyData:
            { '2004': 0.24,
@@ -20,7 +19,6 @@ const Value = { location: 'Colorado',
             }
 }
 
-
 describe('CardCreator testing', () => {
 
  it('renders without crashing', () => {
@@ -33,5 +31,17 @@ describe('CardCreator testing', () => {
    expect(wrapper.find('DistrictYears').length).toEqual(1);
  });
 
+ it('fires handleClick on click of a div className .districtClass', () => {
+   const mockedSubmit = jest.fn();
+   const wrapper = mount(<CardCreator value={Value} index={Date.now()} handleClick={mockedSubmit} />)
+  //  const expectedState = {
+  //    title: '',
+  //    body: ''
+  //  };
+   const divDistrictClass = wrapper.find('');
+   console.log(divDistrictClass);
+   divDistrictClass.simulate('click');
+   expect(wrapper.state().compare.length).toBe(1)
+  });
 
-});
+ });
