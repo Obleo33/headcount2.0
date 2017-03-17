@@ -12,7 +12,7 @@ const CardCreator = ({index, value, handleClick}) => {
           key={index}
           onClick={() => handleClick(value.location)}>
 
-      <h2 className="district-name">{value.location}</h2>
+      <h2 className="district-name">{value.location.toUpperCase()}</h2>
       <DistrictYears yearlyData={value.yearlyData}/>
     </div>
   )

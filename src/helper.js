@@ -28,7 +28,7 @@ class DistrictRepository {
       const search = locationKeys.filter(location => location.includes(input.toUpperCase()))
       return search.map((location,index)=> search[index] = this.data[location])
     }
-    return locationKeys.map((location,index)=> this.data[location])
+    return locationKeys.map(location=> this.data[location])
   };
 
   findAverage(district) {

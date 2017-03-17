@@ -1,3 +1,8 @@
+body {
+  background-color: #333745;
+  color: #333745;
+}
+
 header, .search-form {
   text-align: center;
 }

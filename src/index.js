@@ -2,6 +2,6 @@ import React from 'react';
 import { render } from 'react-dom';
 import './index.css';
 
-import App from './App/App';
+import HeadCount from './HeadCount/HeadCount';
 
-render( <App />, document.getElementById('root') );
+render( <HeadCount />, document.getElementById('root') );
