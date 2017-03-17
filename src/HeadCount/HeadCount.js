@@ -37,19 +37,22 @@ export default class HeadCount extends Component {
   const keys = this.state.compare.map(district => district.location)
   const index = keys.indexOf(location)
 
-    if (index === -1) {
-      if(this.state.compare.length<2){
-        this.state.compare.push(this.state.data.findByName(location))
-      } else {
-        this.state.compare.shift()
-        this.state.compare.push(this.state.data.findByName(location))
-      }
-      this.setState({compare: this.state.compare})
+  index === -1 ? this.addCompare(location): this.removeComare(index);
+  }
+
+  addCompare(location){
+    if(this.state.compare.length<2){
+      this.state.compare.push(this.state.data.findByName(location))
     } else {
-        console.log('else key: ' + index)
-        this.state.compare.splice(index,1)
-        this.setState({compare: this.state.compare})
+      this.state.compare.shift()
+      this.state.compare.push(this.state.data.findByName(location))
     }
+    this.setState({compare: this.state.compare})
+  }
+
+  removeComare(index){
+    this.state.compare.splice(index,1)
+    this.setState({compare: this.state.compare})
   }
 
   render() {
